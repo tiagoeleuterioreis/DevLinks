@@ -1,0 +1,198 @@
+* {
+  /* seletor universal */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* se baseia no tamanho dado pelo border das boxes */
+}
+
+:root {
+  /* por padrão o html{} recebe o :root{} */
+  --text-color: rgba(255, 255, 255, 1);
+  --bg-url: url(./assets/bg-desktop.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(0, 0, 0, 0.05);
+  --social-link-hover: rgba(255, 255, 255, 0.2);
+  --color-click: rgba(255, 255, 255, 0.4);
+  --switch-url: url(./assets/moonstars.svg);
+}
+
+.light {
+  --text-color: rgba(0, 0, 0, 1);
+  --bg-url: url(./assets/bg-desktop-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.02);
+  --surface-color-hover: rgba(0, 0, 0, 0.05);
+  --social-link-hover: rgba(0, 0, 0, 0.1);
+  --color-click: rgba(100, 100, 100, 0.4);
+  --switch-url: url(./assets/sun.svg);
+}
+
+body {
+  /*
+  background-image: url(./assets/bg-mobile.jpg); valor de uma função dentro da url, por padrão a img vem repetindo 
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover; ele cobre o fundo da pagina com a img com base no tamanho do dispositivo */
+
+  /* background: color image repeat position- abreviando tudo que tem acima */
+  background: var(--bg-url) no-repeat top center/cover;
+  height: 100vh;
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+#container {
+  /*div elemento blockado por padrão */
+  width: 360px;
+  border: 3px solid var(--random-border);
+  margin: 56px auto 0px;
+  padding: 0 24px;
+}
+
+div {
+  border: 1px solid var(--random-border);
+}
+
+/* Profile */
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+#profile img {
+  border: 1px solid var(--random-border);
+  width: 112px; /* geralmente no css não precisa de altura (pois ela tem que fluída */
+}
+#profile p {
+  border: 1px solid var(--random-border);
+  font-weight: 400;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+/* switch */
+#switch {
+  width: 64px;
+  position: relative;
+  margin: 4px auto;
+}
+#switch button{
+  top: 50%;
+  left: -5%;
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute; /* libera a posição no "andar"*/
+  z-index: 1; /* em qual "andar" vai estar */
+  transform: translateY(-50%);
+}
+.light #switch button{
+  right: -5%;
+  left: initial;
+}
+#switch button a:hover {
+  border: 1px solid red;
+  background: var(--surface-color-hover);
+  border: 1px solid var(--text-color);
+
+  position: absolute; /* libera a posição no "andar"*/
+  z-index: 2; /* em qual "andar" vai estar */
+
+}
+#switch span{
+  display: block; /* por padrão span é inline*/
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/* links */
+ul {
+  list-style: none;
+  display: flex; /* o flex deixa os elementos dentro da caixa flexiveis*/
+  flex-direction: column; /* para que os elementos do ul fiquem em ocluna*/
+  gap: 16px;
+  padding: 24px 0;
+}
+
+ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 24px;
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  text-decoration: none;
+  font-weight: 500;
+
+  transition: background 0.2s;
+}
+
+/* pseudo-selector */
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1px solid var(--text-color);
+
+}
+
+/*efeito ao clicar*/
+ul li a:active {
+  background: var(--color-click);
+  transition: background 0.181s;
+}
+
+#social-links {
+  border: 1px solid var(--random-border);
+
+  display: flex; /* para poder habilitar o gap */
+  justify-content: center;
+  padding: 24px 0;
+  font-size: 24px;
+}
+
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  border-radius: 50%;
+
+  transition: background 0.181s;
+}
+
+#social-links a:hover {
+  background: var(--social-link-hover);
+  padding: 16px;
+  border-radius: 50%;
+}
+
+#social-links a:active {
+  background: var(--color-click);
+  transition: background 0.181s;
+}
+
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+#heart {
+  font-size: 15px;
+}
