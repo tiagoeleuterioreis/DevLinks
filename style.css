@@ -8,7 +8,7 @@
 :root {
   /* por padrão o html{} recebe o :root{} */
   --text-color: rgba(255, 255, 255, 1);
-  --bg-url: url(./assets/bg-desktop.jpg);
+  --bg-url: url(./assets/bg-mobile.jpg);
   --stroke-color: rgba(255, 255, 255, 0.5);
   --surface-color: rgba(255, 255, 255, 0.1);
   --surface-color-hover: rgba(0, 0, 0, 0.05);
@@ -19,7 +19,7 @@
 
 .light {
   --text-color: rgba(0, 0, 0, 1);
-  --bg-url: url(./assets/bg-desktop-light.jpg);
+  --bg-url: url(./assets/bg-mobile-light.jpg);
   --stroke-color: rgba(0, 0, 0, 0.5);
   --surface-color: rgba(0, 0, 0, 0.02);
   --surface-color-hover: rgba(0, 0, 0, 0.05);
@@ -37,7 +37,7 @@ body {
 
   /* background: color image repeat position- abreviando tudo que tem acima */
   background: var(--bg-url) no-repeat top center/cover;
-  height: 100vh;
+  height: 100vh; /* significa 100% viewport height */
 }
 
 body * {
@@ -196,4 +196,15 @@ footer {
 
 #heart {
   font-size: 15px;
+}
+
+/* media queries */
+@media (min-width: 700px) {
+  :root{
+    --bg-url: url(./assets/bg-desktop.jpg);
+  }
+
+    .light{
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
 }
