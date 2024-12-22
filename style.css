@@ -47,7 +47,8 @@ body * {
 
 #container {
   /*div elemento blockado por padrão */
-  width: 360px;
+  width: 100%;
+  max-width: 588px;
   border: 3px solid var(--random-border);
   margin: 56px auto 0px;
   padding: 0 24px;
