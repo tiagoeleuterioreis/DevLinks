@@ -92,18 +92,17 @@ div {
   position: absolute; /* libera a posição no "andar"*/
   z-index: 1; /* em qual "andar" vai estar */
   transform: translateY(-50%);
+  animation: slide-back 0.3236s; /* não precisa forwards pois seria redundante*/
 }
 .light #switch button{
-  right: -5%;
-  left: initial;
+  /*right: -5%;
+  left: initial;*/ 
+  /*não vai precisar do codigo acima, será controlado por @keyframes*/
+  animation: slide-in 0.3236s forwards;
+  /* fowards mantem a modificação*/
 }
-#switch button a:hover {
-  border: 1px solid red;
-  background: var(--surface-color-hover);
-  border: 1px solid var(--text-color);
-
-  position: absolute; /* libera a posição no "andar"*/
-  z-index: 2; /* em qual "andar" vai estar */
+#switch button:hover {
+  outline: 8px solid var(--social-link-hover);
 
 }
 #switch span{
@@ -155,7 +154,7 @@ ul li a:hover {
 /*efeito ao clicar*/
 ul li a:active {
   background: var(--color-click);
-  transition: background 0.181s;
+  transition: background 0.01618s;
 }
 
 #social-links {
@@ -174,7 +173,7 @@ ul li a:active {
   padding: 16px;
   border-radius: 50%;
 
-  transition: background 0.181s;
+  transition: background 0.01618s;
 }
 
 #social-links a:hover {
@@ -185,7 +184,7 @@ ul li a:active {
 
 #social-links a:active {
   background: var(--color-click);
-  transition: background 0.181s;
+  transition: background 0.01618s;
 }
 
 footer {
@@ -198,7 +197,7 @@ footer {
   font-size: 15px;
 }
 
-/* media queries */
+/* at rule (@rule) - @media queries */
 @media (min-width: 700px) {
   :root{
     --bg-url: url(./assets/bg-desktop.jpg);
@@ -208,3 +207,22 @@ footer {
     --bg-url: url(./assets/bg-desktop-light.jpg);
   }
 }
+
+/* at rule ou @rule - transição */
+
+@keyframes slide-in {
+  from {
+    left: -5%;
+  }
+  to {
+    left: 50%
+  }
+}
+@keyframes slide-back {
+  from {
+    left: 50%;
+  } to {
+    left: -5%;
+  }
+}
+
